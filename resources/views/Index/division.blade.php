@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Division Page</title>
-</head>
-<body>
-    <H1>ACCIMT Division</H1>
-    <br><br><br>
-    <h3>Add Trainee Student</h3>
-    <button><a href="{{route('category.create')}}">ADD Training Student</a></button><br><br><br>
+@extends('layouts.mainlayout')
+@section('title','Division')
+@section('content')
+    <div class="container" id="content">    
+    <div class="container">
+    <div class="row">
+    <div class="container bpu-container">
+    <h1>ACCIMT Division Details📋</h1>
+    <br>
+   
     <form action="{{route('division.adddivision')}}" method="post">
         @csrf
-        <label ><b>Division Name</b></label>
-        <input type="text" name="division_name" placeholder="Enter Division Name: ">
+        <h4>Add New Devision</h4><br>
+        <div class="form-group form-row">
+        
+        <label for="exampleInputEmail1" class="col-sm-2">Division Name</label>
+        <div class="col-sm-9">
+        <input type="text" name="division_name" class="form-control" placeholder="Enter Division Name: ">
+        </div>
+        </div>
+        
+        <input type="submit" class="btn btn-success" value="SAVE">
+        <input type="button" class="btn btn-danger" value="CLEAR">
+    </form><br><br>
+    <h4>Trainee Category Details</h4>
+    <button type="submit" class="btn btn-primary"><a href="{{route('category.create')}}" class="form-control">Add Category Details</a></button><br>
 
-        <input type="submit" value="Submit">
-        <input type="reset" value="Cleare">
+    <br>
 
-    </form>
-
-
-    <br><br><br>
-
-    <h2>Divisions in ACCIMT</h2>
+    <h2 align="center">Divisions in ACCIMT</h2>
     <br>
     <div class="">
-        <table border="1" cellspacing="4" cellpadding="5">
+        <table class="table table-dark">
             <tr>
                 <th>ID</th>
                 <th>Division Name</th>
@@ -42,7 +46,7 @@
                 <td>
                      <form action="{{ route('division.editpage', $division->division_id) }}" method="POST">
                         @csrf
-                        <button type="submit">Update</button>
+                        <button type="submit" class="btn btn-warning">Update</button>
                     </form>
 
                 </td>
@@ -50,7 +54,7 @@
                     <form action="{{ route('division.destroy', $division->division_id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
 
@@ -61,6 +65,8 @@
 
         </table>
     </div>
-
-</body>
-</html>
+</div>
+</div>
+</div>
+</div>
+@endsection

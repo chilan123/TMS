@@ -1,47 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Type page</title>
-</head>
-<body>
-    <h1>Add Trainee Students</h1>
+@extends('layouts.mainlayout')
+@section('title','Type')
+@section('content')
+<div class="container" id="content">    
+    <div class="container">
+    <div class="row">
+    <div class="container bpu-container">
+    <h1>Trainee Students Category📚</h1>
     <form action="{{route('category.store')}}" method="post">
         @csrf
-        <label>Select Division :</label>
-
-        <select name="division_id" id="division">
+        <div class="form-group form-row">
+        <label class="col-sm-2">Select Division :</label>
+        <div class="col-sm-9">
+        <select name="division_id" id="division" class="form-control">
 
             @foreach($divisions as $division)
                     <option value="{{ $division->division_id }}" name="division_id">{{ $division->division_name }}</option>
             @endforeach
         </select><br><br>
-
-        <label>Student Type (Special or General ): </label><br>
+        </div>
+        <label class="col-sm-2">Student Type: </label>
+        <div class="col-sm-9">
         <label>Special</label>
-        <input type="radio" name="type" value="Special" id="spe">
+        <input type="radio" name="type" value="Special" id="spe" >
 
         <label>General</label>
-        <input type="radio" name="type" value="General" id="gen"><br><br>
+        <input type="radio" name="type" value="General" id="gen">
+    </div><br><br>
 
-        <label>No.of Students </label>
-        <input type="text" name="count" placeholder="Enter Student Count"><br><br>
-        <input type="submit" value="save"> &nbsp;&nbsp;&nbsp;
-        <input type="reset" value="Clear">
-
+        <label class="col-sm-2">No.of Students </label>
+        <div class="col-sm-9">
+        <input type="text" name="count" placeholder="Enter Student Count" class="form-control">
+        </div>
+        </div>
+        <input type="submit" class="btn btn-success" value="SAVE">
+        <input type="button" class="btn btn-danger" value="CLEAR">
+        
     </form>
 
-    <h1>Trainee Student Details (Special or General)</h1>
     <br><br>
     <div class="">
-        <table border="1" cellspacing="4" cellpadding="5">
+        <table class="table table-dark">
             <tr>
                 <th>ID</th>
                 <th>Division ID</th>
                 <th>Division Name</th>
-                <th>Type (Special-1 or general-2)</th>
+                <th>Type </th>
                 <th>No Of Student</th>
                 <th>Update</th>
                 <th>Delete</th>
@@ -67,14 +71,14 @@
 
                         <button type="submit">Update</button>
                     </form> --}}
-                    <a href="{{ route('category.editpage', $categorie->id) }}">Update</a>
+                    <a href="{{ route('category.editpage', $categorie->id) }}" class="btn btn-warning">Update</a>
 
                 </td>
                 <td>
                     <form action="{{ route('category.destroy', $categorie->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
 
@@ -87,7 +91,10 @@
 
         </table>
     </div>
+</div>
+</div>
+</div>
+</div>
 
 
-</body>
-</html>
+    @endsection
