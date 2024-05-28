@@ -5,19 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Division Page</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+
+    <style>
+        body {
+          background-color: rgb(209, 244, 255);
+        }
+
+        .frame {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            margin-top: 50px; /* Adjust as needed */
+        }
+
+        .center-buttons {
+            text-align: center;
+        }
+
+        
+      </style>
+
+
 </head>
 <body>
-    <H1>ACCIMT Division</H1>
+    <div class="container" id="content">    
+        <div class="container">
+        <div class="row">
+          <div class="container bpu-container">
+    <h1>ACCIMT Division Details📚</h1>
     <br><br><br>
-    <h3>Add Trainee Student</h3>
+    <h3>Add Trainee Category</h3>
     <button><a href="{{route('category.create')}}">ADD Training Student</a></button><br><br><br>
     <form action="{{route('division.adddivision')}}" method="post">
         @csrf
-        <label ><b>Division Name</b></label>
+        <div class="form-group">
+        <label for="exampleInputEmail1" ><b>Division Name</b></label>
         <input type="text" name="division_name" placeholder="Enter Division Name: ">
 
-        <input type="submit" value="Submit">
-        <input type="reset" value="Cleare">
+        <input type="submit" class="btn btn-primary" value="SAVE">
+                  <input type="button" class="btn btn-warning" value="CLEAR">
+        </div>
 
     </form>
 
@@ -60,6 +92,10 @@
              @endforeach
 
         </table>
+    </div>
+          </div>
+        </div>
+        </div>
     </div>
 
 </body>
