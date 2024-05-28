@@ -6,23 +6,27 @@
     <div class="container">
     <div class="row">
     <div class="container bpu-container">
-    <h1>ACCIMT Division Details📚</h1>
-    <br><br><br>
-    <h3>Add Trainee Category</h3>
-    <button type="submit" class="btn btn-success"><a href="{{route('category.create')}}" class="form-control">ADD Training Student</a></button><br><br><br>
+    <h1>ACCIMT Division Details📋</h1>
+    <br>
+   
     <form action="{{route('division.adddivision')}}" method="post">
         @csrf
-        <div class="form-group">
-        <label for="exampleInputEmail1" ><b>Division Name</b></label>
+        <h4>Add New Devision</h4><br>
+        <div class="form-group form-row">
+        
+        <label for="exampleInputEmail1" class="col-sm-2">Division Name</label>
+        <div class="col-sm-9">
         <input type="text" name="division_name" class="form-control" placeholder="Enter Division Name: ">
         </div>
+        </div>
         
-        <input type="submit" class="btn btn-primary" value="SAVE">
-        <input type="button" class="btn btn-warning" value="CLEAR">
-    </form>
+        <input type="submit" class="btn btn-success" value="SAVE">
+        <input type="button" class="btn btn-danger" value="CLEAR">
+    </form><br><br>
+    <h4>Trainee Category Details</h4>
+    <button type="submit" class="btn btn-primary"><a href="{{route('category.create')}}" class="form-control">Add Category Details</a></button><br>
 
-
-    <br><br><br>
+    <br>
 
     <h2 align="center">Divisions in ACCIMT</h2>
     <br>
@@ -42,7 +46,7 @@
                 <td>
                      <form action="{{ route('division.editpage', $division->division_id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-success">Update</button>
+                        <button type="submit" class="btn btn-warning">Update</button>
                     </form>
 
                 </td>
@@ -50,7 +54,7 @@
                     <form action="{{ route('division.destroy', $division->division_id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-warning">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
 
@@ -65,4 +69,4 @@
 </div>
 </div>
 </div>
-@endsectionb 
+@endsection
