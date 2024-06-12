@@ -34,7 +34,7 @@
         </div>
         </div>
         <input type="submit" class="btn btn-success" value="SAVE">
-        <input type="button" class="btn btn-danger" value="CLEAR">
+        <input type="reset" class="btn btn-danger" value="CLEAR">
         
     </form>
 
