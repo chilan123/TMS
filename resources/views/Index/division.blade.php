@@ -2,11 +2,11 @@
 @extends('layouts.mainlayout')
 @section('title','Division')
 @section('content')
-    <div class="container" id="content">    
+    <div class="container" id=" ">    
     <div class="container">
     <div class="row">
     <div class="container bpu-container">
-    <h1>ACCIMT Division Details📋</h1>
+    <h1> Division Details📋</h1>
     <br>
    
     <form action="{{route('division.adddivision')}}" method="post">
@@ -21,10 +21,12 @@
         </div>
         
         <input type="submit" class="btn btn-success" value="SAVE">
-        <input type="button" class="btn btn-danger" value="CLEAR">
+        <input type="reset" class="btn btn-danger" value="CLEAR">
     </form><br><br>
+    <div class="section-header">
     <h4>Trainee Category Details</h4>
-    <button type="submit" class="btn btn-primary"><a href="{{route('category.create')}}" class="form-control">Add Category Details</a></button><br>
+    <a href="{{route('category.create')}}" class="btn btn-secondary " style="color: white;">Add Category Details</a><br><br>
+    </div>
 
     <br>
 

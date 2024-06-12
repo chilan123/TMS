@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $request->validate([
             'division_id'=>'required|exists:divisions,division_id',
             'type'=>'required|in:Special,General',
-            'count'=>'required|integer|min:1'
+            'count'=>'required|integer|min:0'
         ]);
 
         // Create a new category with validated data
